@@ -6,46 +6,102 @@ namespace HelloWorld
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
+            
+            
             Console.WriteLine("Hello World!");
-            Thread.Sleep(5000);
+            Thread.Sleep(2500);
             Console.WriteLine("Time to initiate a Queue!...");
             Thread.Sleep(2500);
-            Console.WriteLine("Adding String 'Hello' to the Queue");
-
             Queue q = new Queue();
-            q.add("Hello");
-            Console.WriteLine("Adding String 'World' to the Queue");
-            Thread.Sleep(2500);
-            q.add("World");
-            Console.WriteLine("Adding String 'Foo' to the Queue");
-            Thread.Sleep(2500);
-            q.add("Foo");
+            Console.WriteLine("to add to the queue please type 'push word'.\nto pop from the queue please type 'pop'.\nto stop the program, please type 'stop'.");
+            while (true)
+            {
+                Console.WriteLine("please type a command:\n");
+                String addToQueue = Console.ReadLine();
+                if(addToQueue == "stop")
+                {
+                    break;
+                }
+                else if(addToQueue.Split()[0] == "push")
+                {
 
-            Console.WriteLine("Popping out of the Queue");
-            Thread.Sleep(2500);
-            q.pop();
+                    q.push(addToQueue.Split()[1]);
+                    Console.WriteLine("'"+addToQueue.Split()[1]+"'" + " has been added to the queue.");
+                }
+                else if(addToQueue.Split()[0] == "pop")
+                {
+                    String removedWord = q.pop();
+                    if(removedWord == "NULL")
+                    {
+                        continue;
+                    }
+                    Console.WriteLine("'" + removedWord + "'" + " has been removed from the queue.");
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Please try again...");
+                }
 
-            Console.WriteLine("Popping out of the Queue");
-            Thread.Sleep(2500);
-            q.pop();
 
-            Console.WriteLine("Adding String 'Bar' to the Queue");
-            Thread.Sleep(2500);
-            q.add("Bar");
+            }
+            
 
-            Console.WriteLine("Popping out of the Queue");
-            Thread.Sleep(2500);
-            q.pop();
+            /* Below is a quick and fun Palindrome checker!
+            
+            while (true)
+            {
+                int count = 0;
+                Console.WriteLine("Please enter a palindrome...\n");
+                String palindrome = Console.ReadLine();
+                if(palindrome == "stop")
+                {
+                    break;
+                }
+                for (int i = 0; i < palindrome.Length / 2; i++)
+                {
+                    if (palindrome[i] == palindrome[palindrome.Length - 1 - i])
+                    {
+                        count++;
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine("'" + palindrome + "'" + " is not a Palindrome. Please try again.");
+                        break;
+                        
+                        
+                    }
+                }
+                if(count == palindrome.Length / 2)
+                {
+                    Console.WriteLine(palindrome + " is a palindrome! congratz!");
+                }
+                {
 
-            Console.WriteLine("Popping out of the Queue");
-            Thread.Sleep(2500);
-            q.pop();
+                }
+            }*/
 
-            Console.WriteLine("Popping out of the Queue");
-            Thread.Sleep(2500);
-            q.pop();
+
+            /* Below is a simple string reversal 
+            Console.WriteLine("Please enter a word to be reversed...\n");
+            String reverse = Console.ReadLine();
+            char[] newString = reverse.ToCharArray();
+
+            
+            for(int i = 0; i < reverse.Length/2; i++)
+            {
+                char temp = newString[i];
+                newString[i] = newString[reverse.Length - 1 - i];
+                newString[reverse.Length - 1 - i] = temp;
+            }
+            String result = new string(newString);
+            Console.WriteLine("The reversed version of " + reverse + " is " + result);
+
+    */
+            return 0;
         }
     }
 }
