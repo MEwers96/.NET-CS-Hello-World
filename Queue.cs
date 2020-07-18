@@ -14,7 +14,7 @@ public class Queue
      * The add function will create a new StringEntry with the parameter given. If there is no
      * first item in the queue, it will then set both the back and front to the queue. 
      */
-    public void add(String s)
+    public void push(String s)
     {
 
         if (backOfLine == null)
@@ -45,14 +45,13 @@ public class Queue
             String result;
             if(firstInLine == null){
 
-                Console.WriteLine("There are no items in the queue. Please use the 'add' function to queue a new item");
+                Console.WriteLine("There are no items in the queue. Please use the 'push' function to queue a new item");
                 result = "NULL";    
             }
             else{
 
                 result = firstInLine.data;
                 firstInLine = firstInLine.next;
-                Console.WriteLine(result);
             }
                 
             return result;
