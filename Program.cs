@@ -28,7 +28,7 @@ namespace HelloWorld
                 {
 
                     q.push(addToQueue.Split()[1]);
-                    Console.WriteLine("'"+addToQueue.Split()[1]+"'" + " has been added to the queue.");
+                    Console.WriteLine("'{0}' has been added to the queue.", addToQueue.Split()[1]);
                 }
                 else if(addToQueue.Split()[0] == "pop")
                 {
@@ -37,7 +37,7 @@ namespace HelloWorld
                     {
                         continue;
                     }
-                    Console.WriteLine("'" + removedWord + "'" + " has been removed from the queue.");
+                    Console.WriteLine("'{0}' has been removed from the queue.", removedWord);
                     
                 }
                 else
@@ -47,7 +47,7 @@ namespace HelloWorld
 
 
             }
-            
+
 
             /* Below is a quick and fun Palindrome checker!
             
@@ -69,7 +69,7 @@ namespace HelloWorld
                     }
                     else
                     {
-                        Console.WriteLine("'" + palindrome + "'" + " is not a Palindrome. Please try again.");
+                        Console.WriteLine("'{0}' is not a Palindrome. Please try again.", palindrome);
                         break;
                         
                         
@@ -77,7 +77,7 @@ namespace HelloWorld
                 }
                 if(count == palindrome.Length / 2)
                 {
-                    Console.WriteLine(palindrome + " is a palindrome! congratz!");
+                    Console.WriteLine("{0} is a palindrome! congratz!", palindrome);
                 }
                 {
 
@@ -100,7 +100,7 @@ namespace HelloWorld
                 newString[reverse.Length - 1 - i] = temp;
             }
             String result = new string(newString);
-            Console.WriteLine("The reversed version of " + reverse + " is " + result);
+            Console.WriteLine("The reversed version of '{0}' is '{1}'", reverse, result);
 
     */
             return 0;
