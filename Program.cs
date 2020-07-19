@@ -11,9 +11,9 @@ namespace HelloWorld
             
             
             Console.WriteLine("Hello World!");
-            Thread.Sleep(2500);
+            Thread.Sleep(2000);
             Console.WriteLine("Time to initiate a Queue!...");
-            Thread.Sleep(2500);
+            Thread.Sleep(2000);
             Queue q = new Queue();
             Console.WriteLine("to add to the queue please type 'push word'.\nto pop from the queue please type 'pop'.\nto stop the program, please type 'stop'.");
             while (true)
@@ -42,7 +42,7 @@ namespace HelloWorld
                 }
                 else
                 {
-                    Console.WriteLine("Please try again...");
+                    Console.WriteLine("Please try again....");
                 }
 
 
@@ -86,6 +86,8 @@ namespace HelloWorld
 
 
             /* Below is a simple string reversal 
+             
+
             Console.WriteLine("Please enter a word to be reversed...\n");
             String reverse = Console.ReadLine();
             char[] newString = reverse.ToCharArray();
