@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using HelloWorld;
+using QueueNS;
 
 namespace HelloWorld
 {
@@ -15,6 +15,7 @@ namespace HelloWorld
             Console.WriteLine("Time to initiate a Queue!...");
             Thread.Sleep(2000);
             var q = new Queue();
+            
             Console.WriteLine("to add to the queue please type 'push word'.\nto pop from the queue please type 'pop'.\nto stop the program, please type 'stop'.");
             while (true)
             {
