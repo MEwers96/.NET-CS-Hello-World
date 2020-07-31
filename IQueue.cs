@@ -3,6 +3,6 @@
     public interface IQueue
     {
         object Pop();
-        void Push(object s);
+        void Push(object itemToPush);
     }
 }
