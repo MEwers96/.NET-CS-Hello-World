@@ -1,64 +1,67 @@
 ﻿using System;
-using QueueNS;
+using HelloWorld;
 
-namespace QueueNS{ 
-public class Queue
-{
-    private StringEntry _firstInLine = null;
-    private StringEntry _backOfLine = null;
-
-
-    /* Function: add(String s)
-     * Parameters: String s -> a string to add to the queue.
-     * 
-     * Description:
-     * The add function will create a new StringEntry with the parameter given. If there is no
-     * first item in the queue, it will then set both the back and front to the queue. 
-     */
-    public void Push(string s)
+namespace HelloWorld{
+    public class Queue : IQueue
     {
+        private Entry _firstInLine = null;
+        private Entry _backOfLine = null;
 
-        if (_backOfLine == null)
+
+        /* Function: add(String s)
+         * Parameters: String s -> a string to add to the queue.
+         * 
+         * Description:
+         * The add function will create a new Entry with the parameter given. If there is no
+         * first item in the queue, it will then set both the back and front to the queue. 
+         */
+
+        public void Push(Object s)
         {
-            var firstEntry = new StringEntry(s);
-            _firstInLine = firstEntry;
-            _backOfLine = firstEntry;
+
+            if (_firstInLine == null)
+            {
+                var firstEntry = HelloWorld.Factory.CreateEntry(s);
+                _firstInLine = firstEntry;
+                _backOfLine = firstEntry;
+            }
+
+            else
+            {
+                var entry = Factory.CreateEntry(s, _backOfLine);
+                _backOfLine = entry;
+            }
+
         }
 
-        else
+
+        /* Function: pop()
+         * Parameters: NONE
+         * 
+         * Description:
+         * The pop function will take the data from the _firstInLine Entry item, and then return the results.
+         * If the current _firstInLine item is null, then the function will write to the console with an err message.
+         */
+        public Object Pop()
         {
-            var entry = new StringEntry(s, _backOfLine);
-            _backOfLine = entry;
-        }
-
-    }
-
-
-    /* Function: pop()
-     * Parameters: NONE
-     * 
-     * Description:
-     * The pop function will take the data from the _firstInLine StringEntry item, and then return the results.
-     * If the current _firstInLine item is null, then the function will write to the console with an err message.
-     */
-    public string Pop()
-        {
-            string result;
-            if(_firstInLine == null){
+            Object result;
+            if (_firstInLine == null)
+            {
 
                 Console.WriteLine("There are no items in the queue. Please use the 'push' function to queue a new item");
-                result = "NULL";    
+                result = null;
             }
-            else{
+            else
+            {
 
                 result = _firstInLine.GetData();
                 _firstInLine = _firstInLine.GetNext();
             }
-                
+
             return result;
 
         }
 
 
-}
+    }
 }
