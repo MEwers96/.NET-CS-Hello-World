@@ -6,7 +6,6 @@ namespace HelloWorld
     public class Entry : IEntry
     {
         private readonly Object _data;
-        private Entry _previous;
         private Entry _next = null;
 
         /* Function Entry(String s, Entry _backOfLine = null) [Constructer]
@@ -18,16 +17,18 @@ namespace HelloWorld
          * It then will go into the "_previous" Entry and set its "_next" field to the current Entry item. 
          */
 
-        public Entry(Object s, Entry backOfLine = null)
+        public Entry(Object s, IEntry backOfLine = null)
         {
+            Entry previous;
+
             this._data = s;
 
-            _ = backOfLine == null ? this._previous = null : _previous = backOfLine;
+            _ = backOfLine == null ? previous = null : previous = (Entry)backOfLine;
 
 
-            if (this._previous != null)
+            if (previous != null)
             {
-                this._previous._next = this;
+                previous._next = this;
             }
 
         }

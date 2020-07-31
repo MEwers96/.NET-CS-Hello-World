@@ -4,8 +4,8 @@ using HelloWorld;
 namespace HelloWorld{
     public class Queue : IQueue
     {
-        private Entry _firstInLine = null;
-        private Entry _backOfLine = null;
+        private IEntry _firstInLine = null;
+        private IEntry _backOfLine = null;
 
 
         /* Function: add(String s)
