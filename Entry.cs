@@ -8,8 +8,8 @@ namespace HelloWorld
         private readonly Object _data;
         private Entry _next = null;
 
-        /* Function Entry(String s, Entry _backOfLine = null) [Constructer]
-         * Parameters: String s -> a string to be assigned to a Entry item
+        /* Function Entry(String itemToPush, Entry _backOfLine = null) [Constructer]
+         * Parameters: String itemToPush -> a string to be assigned to a Entry item
          *             Entry _backOfLine = null -> Optional parameter, used to set both _previous and _next attributes of a Entry. 
          *
          * Description: 
@@ -17,11 +17,11 @@ namespace HelloWorld
          * It then will go into the "_previous" Entry and set its "_next" field to the current Entry item. 
          */
 
-        public Entry(Object s, IEntry backOfLine = null)
+        public Entry(Object itemToPush, IEntry backOfLine = null)
         {
             Entry previous;
 
-            this._data = s;
+            this._data = itemToPush;
 
             _ = backOfLine == null ? previous = null : previous = (Entry)backOfLine;
 

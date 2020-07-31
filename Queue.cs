@@ -8,27 +8,27 @@ namespace HelloWorld{
         private IEntry _backOfLine = null;
 
 
-        /* Function: add(String s)
-         * Parameters: String s -> a string to add to the queue.
+        /* Function: add(String itemToPush)
+         * Parameters: String itemToPush -> a string to add to the queue.
          * 
          * Description:
          * The add function will create a new Entry with the parameter given. If there is no
          * first item in the queue, it will then set both the back and front to the queue. 
          */
 
-        public void Push(Object s)
+        public void Push(Object itemToPush)
         {
 
             if (_firstInLine == null)
             {
-                var firstEntry = HelloWorld.Factory.CreateEntry(s);
+                var firstEntry = HelloWorld.Factory.CreateEntry(itemToPush);
                 _firstInLine = firstEntry;
                 _backOfLine = firstEntry;
             }
 
             else
             {
-                var entry = Factory.CreateEntry(s, _backOfLine);
+                var entry = Factory.CreateEntry(itemToPush, _backOfLine);
                 _backOfLine = entry;
             }
 

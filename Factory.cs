@@ -12,9 +12,9 @@ namespace HelloWorld
             return new Queue();
         }
 
-        public static IEntry CreateEntry(object s, IEntry backEntry = null)
+        public static IEntry CreateEntry(object itemToPush, IEntry backEntry = null)
         {
-            return new Entry(s, backEntry);
+            return new Entry(itemToPush, backEntry);
         }
 
     }
